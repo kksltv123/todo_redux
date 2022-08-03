@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux"
-import { addTodo } from "../../redux/modules/todos";
 import nextId from "react-id-generator";
 import styled from "styled-components"
+import { todosActions } from "../../redux/modules/todos";
 
 const Form = () => {
     const id = nextId("detail");
@@ -29,15 +29,13 @@ const Form = () => {
     const onSubmitHandler = (event) => {
         event.preventDefault();
         if ( title === "" || body === "") return;
-
-        dispatch(
-            addTodo({
-                id,
-                title,
-                body,
-                isDone: false,
-            })
-        )
+        
+        dispatch(todosActions.ADD_TODO({
+            id,
+            title,
+            body,
+            isDone: false,
+        }))
         setInputs(initialstate);
     }
 

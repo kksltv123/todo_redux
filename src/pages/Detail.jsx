@@ -3,14 +3,13 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getTodoByID } from "../redux/modules/todos";
+import { todosActions } from "../redux/modules/todos";
 
 const Detail = () => {
     const dispatch = useDispatch();
-    const todo = useSelector((state) => state.todos.todo)
+    const todo = useSelector((state) => state.todo)
     const { id } = useParams();
     const navigate = useNavigate();
-
     const onDispatchRef = useRef();
     
     useEffect(() => {
@@ -19,7 +18,7 @@ const Detail = () => {
 
 
     useEffect(() => {
-        onDispatchRef.current(getTodoByID(id));
+        onDispatchRef.current(todosActions.GET_TODO_BY_ID(id));
     }, [id])
 
 

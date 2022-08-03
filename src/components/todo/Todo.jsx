@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { toggle, remove } from "../../redux/modules/todos"
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { todosActions } from "../../redux/modules/todos";
 
 
 const Todo = ({ todo }) => {
     const dispatch = useDispatch();
     const onRemove = (id) => {
-        dispatch(remove(id))
+        dispatch(todosActions.REMOVE(id))
     }
     const onToggle = (id) => {
-        dispatch(toggle(id))
+        dispatch(todosActions.TOGGLE(id))
     }
     const navigate = useNavigate();
 

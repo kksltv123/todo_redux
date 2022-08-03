@@ -4,7 +4,8 @@ import Todo from "../todo/Todo"
 import { useSelector } from "react-redux";
 
 const List = () => {
-    const { todos } = useSelector((state) => state.todos)
+    const todos = useSelector((state) => state.todos)
+    console.log(todos)
 
     return (
         <div>
