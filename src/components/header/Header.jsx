@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components"
 
 const Header = () => {
+    // toolkit 버전
     return(
         <StHeader>
             <div>My Todo List</div>

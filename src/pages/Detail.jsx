@@ -13,7 +13,7 @@ const Detail = () => {
 
     const onDispatchRef = useRef();
     
-        useEffect(() => {
+    useEffect(() => {
             onDispatchRef.current = dispatch;
       });
 
